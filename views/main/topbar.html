@@ -1,0 +1,86 @@
+<nav class="navbar navbar-default  title">
+    <div class="col-lg-6 col-lg-offset-3 hidden-xs">
+        <ul class="nav navbar-nav title_list">
+            <li><a href="/">首页{{a}}</a></li>
+            <li ui-sref=".designer"><a href="">设计师</a></li>
+            <li ui-sref=".order"><a href="">我的订单</a></li>
+            <li ui-sref=".aboutUS"><a href="">关于我们</a></li>
+            <li ui-sref=".service"><a href="">在线客服</a></li>
+        </ul>
+    </div>
+    <div class="btn-group navbar-btn pull-right">
+        <button class="btn btn-default visible-xs" data-toggle="dropdown">
+            <span class="glyphicon glyphicon-list"></span>
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+            <li><a href="/">首页</a></li>
+            <li ui-sref=".designer"><a href="">设计师</a></li>
+            <li ui-sref=".order"><a href="">我的订单</a></li>
+            <li ui-sref=".aboutUS"><a href="">关于我们</a></li>
+            <li ui-sref=".service"><a href="">在线客服</a></li>
+        </ul>
+        {% if !userinfo._id %}
+        <button  class="btn btn-default" id="title_login">登录</button>
+        <button  class="btn btn-default" id="title_register">注册</button>
+        {% else %}
+        {% if !userinfo.isAdmin  %}
+        <button  class="btn btn-default">用户：{{userinfo.username}}</button>
+        <button  class="btn btn-default back">退出</button>
+        {% else %}
+        <button  class="btn btn-default"><spna class="hidden-xs">管理员：</spna>{{userinfo.username}}</button>
+        <button  class="btn btn-default hidden-xs" onclick="window.open('/admin')">进入管理模式</button>
+        <button  class="btn btn-default back">退出</button>
+        {% endif %}
+        {% endif %}
+    </div>
+</nav>
+<div class=" col-lg-3 login">
+    <span class="close">&times;</span>
+    <h3 class="text-info">登录</h3>
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label class="col-xs-3 control-label" for="username">用户名:</label>
+            <div class="col-xs-8">
+                <input class=" form-control" type="text" name="username" id="username" placeholder="请输入用户名"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-xs-3 control-label" for="password">密码:</label>
+            <div class="col-xs-8">
+                <input class="form-control" type="password" name="password" id="password" placeholder="请输入密码"/>
+            </div>
+        </div>
+        <p class="text-center text-danger message"></p>
+        <input type="button" class="btn btn-info pull-right"  id="login_btn" value="登录"/>
+        <div class="clearfix" style="margin-bottom:20px"></div>
+    </form>
+</div>
+<div class=" col-lg-3 register">
+    <span class="close">&times;</span>
+    <h3 class="text-info">注册</h3>
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label class="col-xs-3 control-label" for="username">用户名:</label>
+            <div class="col-xs-8">
+                <input class="form-control" type="text" name="name" id="name" placeholder="请输入用户名"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-xs-3 control-label" for="password">密码:</label>
+            <div class="col-xs-8">
+                <input class="col-xs-8 form-control" type="password" name="password" id="z-password" placeholder="请输入密码"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-xs-3 control-label" for="repassword">确认密码:</label>
+            <div class="col-xs-8">
+                <input class="col-xs-8 form-control" type="password" name="repassword" id="repassword" placeholder="请重复密码"/>
+            </div>
+        </div>
+        <p class="text-center text-danger message"></p>
+        <input type="button" class="btn btn-info pull-right" id="register_btn" value="注册"/>
+        <div class="clearfix" style="margin-bottom:20px"></div>
+    </form>
+</div>
+<script src="/public/js/login.js"></script>

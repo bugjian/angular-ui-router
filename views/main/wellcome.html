@@ -1,0 +1,17 @@
+<div class="col-lg-4">
+    {{loginshow}}
+    <ul class="nav nav-tabs nav-stacked">
+        <li ng-repeat="(key,category) in list" ng-mouseenter="show[key] = true;isActive[key] = true"
+            ng-mouseleave="show[key] = false;isActive[key] = false" ng-class="{true:'active'}[isActive[key]]">
+            <a href="" class="category">{{category}}</a>
+            <ul class="nav nav-tabs nav-stacked" ng-show="show[key]">
+                <li ng-repeat="topic in listinfo[key]">
+                    <a href="" class="topic" ui-sref=".{{topic}}">{{topic}}</a>
+                </li>
+            </ul>
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="col-lg-8" ui-view="info">
+</div>

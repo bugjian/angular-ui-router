@@ -1,0 +1,52 @@
+.title_list{
+    font-size: 20px;
+}
+.well{
+    margin-bottom: 0;
+    font-size: 20px;
+    background-color:#faebcc;
+    border-bottom: 0;
+}
+.bd{
+   border: 1px solid silver;
+}
+.shade{
+    transition: all 0.5s;
+}
+.category{
+    font-size: 20px;
+}
+.topic{
+    font-size: 15px;
+    color:orange;
+}
+.login{
+    position: fixed;
+    z-index: 99;
+    background-color: rgb(220, 234, 188);
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%,-0);
+    display: none;
+}
+.register{
+    position: fixed;
+    z-index: 99;
+    background-color: rgb(220, 234, 188);
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%,-0);
+    display: none;
+}
+@media all and (max-width: 1020px){
+    .login,.register{
+        width: 100%;
+        font-size: 1vw;
+    }
+    .login label{
+        line-height: 35px;
+    }
+    .register label{
+        line-height: 35px;
+    }
+}
